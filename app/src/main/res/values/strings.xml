@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AndroidProjectText</string>
+    <string name="homepager_tv">首页</string>
+    <string name="store_tv">商城</string>
+    <string name="message_tv">消息</string>
+    <string name="my_center_tv">个人中心</string>
 </resources>
