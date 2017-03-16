@@ -6,6 +6,10 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.li.androidprojecttext.R;
+import com.li.androidprojecttext.fragment.HomePagerFragment;
+import com.li.androidprojecttext.fragment.MessageFragment;
+import com.li.androidprojecttext.fragment.MyCenterFragment;
+import com.li.androidprojecttext.fragment.StoreFragment;
 
 /**
  * MainActivity类
@@ -13,6 +17,10 @@ import com.li.androidprojecttext.R;
 public class MainActivity extends BaseActivity implements View.OnClickListener{
     private ViewPager viewPager;
     private TextView homepager_tv, store_tv, message_tv, my_center_tv;//首页, 商店, 消息, 个人中心
+    private HomePagerFragment homePagerFragment;//首页Fragment
+    private StoreFragment storeFragment;//商店Fragment
+    private MessageFragment messageFragment;//消息Fragment
+    private MyCenterFragment myCenterFragment;//个人中心Fragment
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
