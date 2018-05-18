@@ -9,17 +9,19 @@
         android:supportsRtl="true"
         android:theme="@style/ProjectTheme">
         <activity android:name=".activity.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".activity.VideoActivity">
 
         </activity>
         <activity android:name=".activity.BaseActivity"/>
-        <activity android:name=".mvvm.activity.UserActivity"></activity>>
+        <activity android:name=".mvvm.view.UserActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>>
     </application>
 
 </manifest>

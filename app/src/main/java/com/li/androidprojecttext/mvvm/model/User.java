@@ -1,14 +1,24 @@
-package com.li.androidprojecttext.mvvm.bean;
+package com.li.androidprojecttext.mvvm.model;
 
 import java.io.Serializable;
 
 /**
- * Created by okkuaixiu on 2018/5/17.
+ * UserActivity的数据源
  */
 
 public class User implements Serializable {
     private int id;
     private String name;
+
+    public User() {
+
+    }
+
+
+    public User(int i, String username) {
+        id = i;
+        name = username;
+    }
 
     public int getId() {
         return id;
