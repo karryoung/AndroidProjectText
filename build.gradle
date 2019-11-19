@@ -17,9 +17,15 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url 'https://maven.google.com'}
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+ext {
+    lifecycle = '1.1.1'
+    lifecycleRuntime = '1.1.1'
 }
