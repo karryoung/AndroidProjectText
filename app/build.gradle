@@ -44,11 +44,21 @@ dependencies {
     implementation "android.arch.lifecycle:extensions:$rootProject.lifecycle"
     annotationProcessor "android.arch.lifecycle:compiler:$rootProject.lifecycle"
 
+    //EventBus库
     implementation 'org.greenrobot:eventbus:3.1.1'
+    //Dagger库
+    api 'com.google.dagger:dagger:2.25.2'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.25.2'
+    api 'com.google.dagger:dagger-android:2.25.2'
+    api 'com.google.dagger:dagger-android-support:2.25.2'
+    annotationProcessor 'com.google.dagger:dagger-android-processor:2.25.2'
 
     //这个库是为了使用mqtt时后台运行通知消息的，可以后续视情况是否使用
     implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
     //使用mqtt需要的库
     implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.1'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    //ButterKnife
+    implementation 'com.jakewharton:butterknife:10.2.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
 }

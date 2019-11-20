@@ -8,29 +8,43 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.li.androidprojecttext.R;
+
 /**
  * 首页Fragment
  * Created by okkuaixiu on 2017/3/16.
  */
 
-public class HomePagerFragment extends Fragment {
+public class HomePagerFragment extends ViewPagerBaseFragment {
 
-    private static HomePagerFragment homePagerFragment;
-    /*
-    获取HomePagerFragment对象
+    //（volatile关键字在JDK1.5版本以上才会起作用，会屏蔽jvm做的代码优化，使用双重锁定机制有可能导致程序性能降低）
+    private static volatile HomePagerFragment homePagerFragment;
+
+    private HomePagerFragment() {
+    }
+
+    /**
+     * 获取HomePagerFragment对象
+     * 使用双重锁定机制
      */
     public static HomePagerFragment newInstance(){
+        if (homePagerFragment == null) {
+            synchronized (HomePagerFragment.class){
+                if (homePagerFragment == null) {
+                    homePagerFragment = new HomePagerFragment();
+                }
+            }
+        }
         return homePagerFragment;
     }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected int getLayoutResource() {
+        return R.layout.home_pager_fragment;
     }
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
+    protected void initView() {
+
     }
 }

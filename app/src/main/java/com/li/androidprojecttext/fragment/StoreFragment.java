@@ -8,16 +8,34 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.li.androidprojecttext.R;
+
 /**
  * 商店Fragment
  * Created by okkuaixiu on 2017/3/16.
  */
 
-public class StoreFragment extends Fragment {
+public class StoreFragment extends ViewPagerBaseFragment {
 
-    @Nullable
+    /**
+     * 饿汉式单例模式
+     * 在同一classLoader下，该方式可以解决多线程同步的问题，
+     * 但是该种单例模式没有办法实现懒加载
+     */
+    private static StoreFragment storeFragment = new StoreFragment();
+    private StoreFragment(){
+    }
+    public static StoreFragment newInstance(){
+        return storeFragment;
+    }
+
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
+    protected int getLayoutResource() {
+        return R.layout.store_fragment;
+    }
+
+    @Override
+    protected void initView() {
+
     }
 }
