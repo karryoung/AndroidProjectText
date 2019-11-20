@@ -1,8 +1,9 @@
 package com.li.androidprojecttext.adapter;
 
-import android.support.v4.view.PagerAdapter;
 import android.util.SparseArray;
 import android.view.ViewGroup;
+
+import androidx.viewpager.widget.PagerAdapter;
 
 /**
  * PagerAdapter that items added lazily

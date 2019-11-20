@@ -1,6 +1,6 @@
 package com.li.androidprojecttext.activity;
 
-import android.support.v4.app.FragmentActivity;
+import androidx.fragment.app.FragmentActivity;
 
 /**
  * 所有Activity公共类
