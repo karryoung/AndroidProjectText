@@ -33,8 +33,8 @@ public class MQTTService extends Service {
     private MqttConnectOptions conOpt;
 
     private String host = "tcp://10.105.32.16:1883";
-    private String userName = "admin";
-    private String passWord = "public";
+    private String userName = "admin";//用户名
+    private String passWord = "public";//密码
     private static String myTopic = "ForTest";      //要订阅的主题
     private String clientId = "androidId";//客户端标识
     private IGetMessageCallBack IGetMessageCallBack;
