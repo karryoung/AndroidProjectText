@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import com.li.androidprojecttext.R;
+import com.li.androidprojecttext.adapter.MainViewPagerAdapter;
 import com.li.androidprojecttext.fragment.BaseFragment;
 import com.li.androidprojecttext.fragment.HomePagerFragment;
 import com.li.androidprojecttext.fragment.MessageFragment;
@@ -30,6 +31,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
     ArrayList<BaseFragment> fragmentList;
     private FragmentManager fragmentManager;
+    private MainViewPagerAdapter mainViewPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +61,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         fragmentList.add(homePagerFragment);
         fragmentList.add(messageFragment);
         fragmentList.add(storeFragment);
-        viewPager.setOffscreenPageLimit(4);//设置viewpager的缓存页面的个数
+        fragmentList.add(myCenterFragment);
+//        viewPager.setOffscreenPageLimit(4);//设置viewpager的缓存页面的个数
+        mainViewPagerAdapter = new MainViewPagerAdapter(getSupportFragmentManager(), fragmentList);
+        viewPager.setAdapter(mainViewPagerAdapter);
     }
 
     @Override
