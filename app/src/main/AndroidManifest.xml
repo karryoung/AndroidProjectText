@@ -27,14 +27,16 @@
         </activity>
         <activity android:name=".activity.BaseActivity"/>
         <activity android:name=".mvvm.view.UserActivity">
+        </activity>
+        <activity android:name=".activity.mqtt.li.mqtttest.MQTTActivity"/>
+        <activity android:name=".activity.mqtt.li.test1.TestActivity"/>
+        <activity android:name=".mvvm.view.DemoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.mqtt.li.mqtttest.MQTTActivity"/>
-        <activity android:name=".activity.mqtt.li.test1.TestActivity"/>
     </application>
 
 </manifest>
