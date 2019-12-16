@@ -31,12 +31,15 @@
         <activity android:name=".activity.mqtt.li.mqtttest.MQTTActivity"/>
         <activity android:name=".activity.mqtt.li.test1.TestActivity"/>
         <activity android:name=".mvvm.view.DemoActivity">
+        </activity>
+        <activity android:name=".mvvm.view.MVVMMainactivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".databing.DatabingTestActivity"></activity>
     </application>
 
 </manifest>
