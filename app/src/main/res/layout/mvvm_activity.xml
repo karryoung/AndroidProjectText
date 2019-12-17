@@ -28,6 +28,23 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
+            android:id="@+id/tv_viewmodel_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="30dp"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:padding="10dp"
+            android:text="ViewModel与LiveData"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_databing" />
+
+        <Button
             android:id="@+id/tv_demoactivity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -42,6 +59,6 @@
             android:textSize="16sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_databing" />
+            app:layout_constraintTop_toBottomOf="@id/tv_viewmodel_activity" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

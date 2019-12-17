@@ -11,6 +11,7 @@ import androidx.databinding.DataBindingUtil;
 import com.li.androidprojecttext.R;
 import com.li.androidprojecttext.databinding.MvvmActivityBinding;
 import com.li.androidprojecttext.databing.DatabingTestActivity;
+import com.li.androidprojecttext.databing.viewmodel.ViewModelActivity;
 
 /**
  * mvvm模式下入口activity
@@ -30,6 +31,10 @@ public class MVVMMainactivity extends AppCompatActivity implements View.OnClickL
             case R.id.tv_databing://databing页面
                 Intent intent = new Intent(this, DatabingTestActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.tv_viewmodel_activity://"ViewModel与LiveData"页面
+                Intent intentViewModel = new Intent(this, ViewModelActivity.class);
+                startActivity(intentViewModel);
                 break;
             case R.id.tv_demoactivity://每日一图页面
                 Intent intentDemo = new Intent(this, DemoActivity.class);

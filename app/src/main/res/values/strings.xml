@@ -4,4 +4,5 @@
     <string name="store_tv">商城</string>
     <string name="message_tv">消息</string>
     <string name="my_center_tv">个人中心</string>
+    <string name="formaStr">我是来自%1$s点击事件，现在身处%2$s今年%3$d啦</string>
 </resources>

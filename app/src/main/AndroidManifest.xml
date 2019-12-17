@@ -40,6 +40,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".databing.DatabingTestActivity"></activity>
+        <activity android:name=".databing.viewmodel.ViewModelActivity" />
     </application>
 
 </manifest>
