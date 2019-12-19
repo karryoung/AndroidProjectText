@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.aspectjlibrary.DebugTrace;
 import com.li.androidprojecttext.R;
 import com.li.androidprojecttext.databinding.ActivityViewmodelBinding;
 import com.li.androidprojecttext.databing.viewmodel.vm.MainViewModel;
@@ -30,5 +31,34 @@ public class ViewModelActivity extends FragmentActivity {
                 mainViewModel.setUsers("Activity", "南京", 19);
             }
         });
+        testApp();
+        catchMethod();
+    }
+
+    @DebugTrace
+    private void catchMethod() {
+        try {
+            int sum = 100 / 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void testApp() {
+        int result = 0;
+        for (int i = 1; i <= 100; i++) {
+            result += i;
+        }
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }
