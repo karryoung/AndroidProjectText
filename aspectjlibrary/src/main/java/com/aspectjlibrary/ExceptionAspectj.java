@@ -16,10 +16,30 @@ import org.aspectj.lang.annotation.Before;
 public class ExceptionAspectj {
 
     private static final String TAG = "ExceptionAspectj";
+//     //指定的异常种类
+//    @Before(value = "handler(java.lang.Exception) && args(ex)")
+//    public void handlerExceptionBeforeMethod(Exception ex) {
+//        Log.e(TAG, "handlerExceptionBeforeMethod: 异常产生了--");
+//        Log.e(TAG, "handlerExceptionBeforeMethod: 出现Exception异常--"+ex);
+//        //打印栈信息
+//        ex.printStackTrace();
+//        //错误的详细信息
+//        Log.e(TAG, "handlerExceptionBeforeMethod: 出现Exception异常---详细信息--"+ex.getMessage());
+////        ex.getMessage();
+//        //可以统一写入文件中
+//    }
 
-    @Before("handler(java.lang.Exception)")
-    public void handlerExceptionBeforeMethod() {
-        Log.e(TAG, "handlerExceptionBeforeMethod: 异常产生了--");
+    //获取所有的出错信息
+    @Before(value = "handler(*) && args(ex)")
+    public void handlerErrorExceptionBeforeMethod(Throwable ex) {
+        Log.e(TAG, "handlerErrorExceptionBeforeMethod: 异常产生了--");
+        Log.e(TAG, "handlerErrorExceptionBeforeMethod: 出现ErrorException异常--"+ex);
+        //打印栈信息
+        ex.printStackTrace();
+        //错误的详细信息
+        Log.e(TAG, "handlerErrorExceptionBeforeMethod: 出现Exception异常---详细信息--"+ex.getMessage());
+//        ex.getMessage();
+        //可以统一写入文件中
     }
 
     @AfterThrowing(pointcut = "execution(* com.li.androidprojecttext.*.*(..))", throwing = "exception")

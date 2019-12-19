@@ -4,7 +4,6 @@ import android.util.Log;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -70,4 +69,5 @@ public class LogAspectj {
         joinPoint.proceed();
         Log.e(TAG, "貌似执行User中的age赋值: ");
     }
+
 }

@@ -33,6 +33,7 @@ public class ViewModelActivity extends FragmentActivity {
         });
         testApp();
         catchMethod();
+        BackInt(4);
     }
 
     @DebugTrace
@@ -55,6 +56,10 @@ public class ViewModelActivity extends FragmentActivity {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public int BackInt(int a){
+        return 7;
     }
 
     @Override
