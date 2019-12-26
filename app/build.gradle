@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 29
@@ -80,17 +82,30 @@ dependencies {
     //GSON解析
     implementation "com.squareup.retrofit2:converter-gson:$rootProject.gson"
 
+    //kotlin
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk8:$rootProject.kotlin_version"
+    implementation 'com.google.android.material:material:1.0.0'
+
     //AspectJ埋点
     implementation project(':aspectjlibrary')
     implementation 'org.aspectj:aspectjrt:1.8.9'
+
+    //运行时权限
+    implementation "pub.devrel:easypermissions:$rootProject.easypermissions"
+    //leakCanary
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$rootProject.leakcanary"
+    releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$rootProject.leakcanary"
+    //Logger
+    implementation "com.orhanobut:logger:$rootProject.loggerVersion"
 }
 
 import org.aspectj.bridge.IMessage
 import org.aspectj.bridge.MessageHandler
 import org.aspectj.tools.ajc.Main
+
 final def log = project.logger
 
-android.applicationVariants.all{ variant ->
+android.applicationVariants.all { variant ->
 //    if (!variant.buildType.isDebuggable()) {
 //        log.debug("Skipping non-debuggable build type '${variant.buildType.name}'.")
 //        return

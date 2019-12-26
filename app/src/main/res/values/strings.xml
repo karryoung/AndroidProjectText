@@ -5,4 +5,8 @@
     <string name="message_tv">消息</string>
     <string name="my_center_tv">个人中心</string>
     <string name="formaStr">我是来自%1$s点击事件，现在身处%2$s今年%3$d啦</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="empty_view_hint">暂无数据</string>
+    <string name="error_view_hint">加载失败</string>
+    <string name="no_network_view_hint">网络异常</string>
 </resources>
