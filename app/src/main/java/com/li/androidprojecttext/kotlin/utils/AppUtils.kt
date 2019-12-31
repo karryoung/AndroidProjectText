@@ -1,7 +1,8 @@
-package com.li.androidprojecttext.kotlin.util
+package com.li.androidprojecttext.kotlin.utils
 
 import android.content.Context
 import android.content.pm.PackageManager
+import android.os.Build
 
 /**
  * App相关的工具类
@@ -61,5 +62,12 @@ class AppUtils private constructor() {
          */
         val maxMemory: Long
             get() = Runtime.getRuntime().maxMemory() / 1024
+
+        //获取手机号
+        fun getMobileModel(): String {
+            var model: String? = Build.MODEL
+            model = model?.trim { it <= ' ' } ?: ""
+            return model
+        }
     }
 }

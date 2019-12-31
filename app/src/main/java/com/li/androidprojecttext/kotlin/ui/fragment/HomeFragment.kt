@@ -1,5 +1,6 @@
 package com.li.androidprojecttext.kotlin.ui.fragment
 
+import com.li.androidprojecttext.R
 import com.li.androidprojecttext.kotlin.base.BaseFragment
 import com.li.androidprojecttext.kotlin.mvp.contract.HomeContract
 import com.li.androidprojecttext.kotlin.mvp.model.bean.HomeBean
@@ -28,8 +29,7 @@ class HomeFragment : BaseFragment(), HomeContract.View {
     override fun dismissLoading() {
     }
 
-    override fun getLayoutId(): Int {
-    }
+    override fun getLayoutId(): Int = R.layout.fragment_home
 
     override fun initView() {
     }

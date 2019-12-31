@@ -33,7 +33,7 @@ class MyApplication : Application() {
         super.onCreate()
         context = applicationContext
         initConfig()
-        com.li.androidprojecttext.kotlin.util.DisplayManager.init(this)
+        com.li.androidprojecttext.kotlin.utils.DisplayManager.init(this)
         registerActivityLifecycleCallbacks(mActivityLifecycleCallbacks)
     }
 

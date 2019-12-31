@@ -1,4 +1,4 @@
-package com.li.androidprojecttext.kotlin.util
+package com.li.androidprojecttext.kotlin.utils
 
 import android.content.Context
 import android.util.DisplayMetrics

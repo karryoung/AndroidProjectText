@@ -8,7 +8,7 @@ import android.view.animation.Animation
 import com.li.androidprojecttext.R
 import com.li.androidprojecttext.kotlin.MyApplication
 import com.li.androidprojecttext.kotlin.base.BaseActivity
-import com.li.androidprojecttext.kotlin.util.AppUtils
+import com.li.androidprojecttext.kotlin.utils.AppUtils
 import kotlinx.android.synthetic.main.activity_splash.*
 import pub.devrel.easypermissions.EasyPermissions
 
