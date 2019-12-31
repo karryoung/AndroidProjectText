@@ -97,6 +97,12 @@ dependencies {
     releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$rootProject.leakcanary"
     //Logger
     implementation "com.orhanobut:logger:$rootProject.loggerVersion"
+    //模糊透明 View
+    implementation "com.github.mmin18:realtimeblurview:$rootProject.realtimeblurview"
+    // 底部菜单
+    implementation('com.flyco.tablayout:FlycoTabLayout_Lib:2.1.0@aar') {
+        exclude group: 'com.android.support', module: 'support-v4'
+    }
 }
 
 import org.aspectj.bridge.IMessage
