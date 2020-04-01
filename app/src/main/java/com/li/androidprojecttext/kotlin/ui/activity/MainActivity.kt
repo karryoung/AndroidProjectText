@@ -45,12 +45,16 @@ class MainActivity : BaseActivity() {
     private fun initTab() {
         (0 until mTitles.size)
                 .mapTo(mTabEntities) {
-                    TabEntity(mTitles[it])
+                    TabEntity(mTitles[it],mIconSelectIds[it], mIconUnSelectIds[it])
                 }
 
         //为Tab赋值
         tab_layout.setTabData(mTabEntities)
         tab_layout.setOnTabSelectListener(object : OnTabSelectListener {
+            override fun onTabReselect(position: Int) {
+
+            }
+
             override fun onTabSelect(position: Int) {
                 //切换fragment
                 switchFragment(position)
@@ -62,20 +66,20 @@ class MainActivity : BaseActivity() {
     private fun switchFragment(position: Int) {
         val transaction = supportFragmentManager.beginTransaction()
         hideFragments(transaction)
-        when(position){
-            0//首页
-            ->mHomeFragment?.let {
-                transaction.show(it)
-            }?:HomeFragment.
-        }
+//        when(position){
+//            0//首页
+//            ->mHomeFragment?.let {
+//                transaction.show(it)
+//            }?:HomeFragment.
+//        }
     }
 
     //隐藏fragment
     private fun hideFragments(transaction: FragmentTransaction) {
         mHomeFragment?.let { transaction.hide(it) }
-        mDiscoveryFragment?.let { transaction.hide(it) }
-        mHotFragment?.let { transaction.hide(it) }
-        mMineFragment?.let { transaction.hide(it) }
+//        mDiscoveryFragment?.let { transaction.hide(it) }
+//        mHotFragment?.let { transaction.hide(it) }
+//        mMineFragment?.let { transaction.hide(it) }
     }
 
     override fun layoutId(): Int = R.layout.activity_main_for_kotlin
