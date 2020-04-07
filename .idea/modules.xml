@@ -6,6 +6,8 @@
       <module fileurl="file://$PROJECT_DIR$/app/AndroidProjectText-app.iml" filepath="$PROJECT_DIR$/app/AndroidProjectText-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/aspectjlibrary/aspectjlibrary.iml" filepath="$PROJECT_DIR$/aspectjlibrary/aspectjlibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flutter_module/.android/Flutter/flutter.iml" filepath="$PROJECT_DIR$/flutter_module/.android/Flutter/flutter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flutter_module/flutter_module.iml" filepath="$PROJECT_DIR$/flutter_module/flutter_module.iml" />
       <module fileurl="file://$PROJECT_DIR$/yiqian-AndroidProjectText.iml" filepath="$PROJECT_DIR$/yiqian-AndroidProjectText.iml" />
     </modules>
   </component>

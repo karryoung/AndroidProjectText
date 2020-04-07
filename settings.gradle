@@ -1,1 +1,10 @@
 include ':app', ':aspectjlibrary'
+//flutter 的添加
+setBinding(new Binding([gradle: this]))
+evaluate(new File(
+        settingsDir.parentFile,
+        //flutter_module即为创建的模块名称
+        'AndroidProjectText/flutter_module/.android/include_flutter.groovy'
+))
+
+include ':flutter_module'

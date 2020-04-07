@@ -116,6 +116,8 @@ dependencies {
     implementation rootProject.ext.otherGlideLibs
     // glide注解处理器
     kapt rootProject.ext.annotationProcessorLibs
+    //添加flutter模块
+    implementation project(':flutter')
 }
 
 import org.aspectj.bridge.IMessage
