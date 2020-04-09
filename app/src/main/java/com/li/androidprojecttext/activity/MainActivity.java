@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
@@ -53,18 +54,26 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         my_center_tv = (TextView) view_tab.findViewById(R.id.my_center_tv);
         my_center_tv.setOnClickListener(MainActivity.this);
         fragmentManager = getSupportFragmentManager();
-        homePagerFragment = HomePagerFragment.newInstance();
-        messageFragment = MessageFragment.newInstance();
-        storeFragment = StoreFragment.newInstance();
-        myCenterFragment = MyCenterFragment.newInstance();
+        homePagerFragment = (HomePagerFragment) instantiateFragment(viewPager, 0, HomePagerFragment.newInstance());
+        messageFragment = (MessageFragment) instantiateFragment(viewPager, 1, MessageFragment.newInstance());
+        storeFragment = (StoreFragment) instantiateFragment(viewPager, 2, StoreFragment.newInstance());
+        myCenterFragment = (MyCenterFragment) instantiateFragment(viewPager, 3, MyCenterFragment.newInstance());
         fragmentList = new ArrayList<>();
         fragmentList.add(homePagerFragment);
         fragmentList.add(messageFragment);
         fragmentList.add(storeFragment);
         fragmentList.add(myCenterFragment);
-//        viewPager.setOffscreenPageLimit(4);//设置viewpager的缓存页面的个数
+        viewPager.setOffscreenPageLimit(4);//设置viewpager的缓存页面的个数
         mainViewPagerAdapter = new MainViewPagerAdapter(getSupportFragmentManager(), fragmentList);
         viewPager.setAdapter(mainViewPagerAdapter);
+    }
+
+
+    private Fragment instantiateFragment(ViewPager viewPager, int position, Fragment defaultResult) {
+        //注意这里获取的tag的方式，如果adapter里面的获取tag的改变了，此处也要改变（建议使用viewpager2）
+        String tag = "android:switcher:" + viewPager.getId() + ":" + position;
+        Fragment fragment = getSupportFragmentManager().findFragmentByTag(tag);
+        return fragment == null ? defaultResult : fragment;
     }
 
     @Override
@@ -91,7 +100,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         switch (fragmentOrder){
             case 1://首页
                 //设置点击后变换的图标
-//                home_tab_tv.setCompoundDrawablesWithIntrinsicBounds(null,
+//                homepager_tv.setCompoundDrawablesWithIntrinsicBounds(null,
 //                        getResources().getDrawable(R.drawable.home_select_img), null, null);
                 if (homePagerFragment == null) {
                     homePagerFragment = HomePagerFragment.newInstance();

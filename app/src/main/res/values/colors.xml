@@ -42,7 +42,8 @@
 
     <!-- item 标题颜色 -->
     <color name="color_item_title">#000000</color>
-
+    <!--首页底部背景色-->
+    <color name="color_bottom_bg">#549cf8</color>
     <color name="color_lighter_gray">#ddd</color>
     <color name="color_darker_gray">#aaa</color>
 
