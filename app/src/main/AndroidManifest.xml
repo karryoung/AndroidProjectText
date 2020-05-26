@@ -17,6 +17,8 @@
     <!-- SD 卡读写权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!--  打开相机权限  -->
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:name=".kotlin.MyApplication"
@@ -38,6 +40,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.VideoActivity"></activity>
+        <activity android:name=".activity.Viewpager2TestActivity"></activity>
+        <activity android:name=".activity.FaceRecognitionDemoActivity"></activity>
+        <activity android:name=".activity.DoubleCameraActivity"></activity>
         <activity android:name=".activity.BaseActivity" />
         <activity android:name=".mvvm.view.UserActivity"></activity>
         <activity android:name=".activity.mqtt.li.mqtttest.MQTTActivity" />
@@ -62,6 +67,39 @@
             android:name=".kotlin.ui.activity.MainActivity"
             android:screenOrientation="portrait">
 
+        </activity>
+
+        <service
+            android:name=".aidl.keeplive.ClientLocalService"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="ClientLocalService"/>
+            </intent-filter>
+        </service>
+        <activity
+            android:name=".aidl.keeplive.ClientTransferActivity"
+            android:theme="@style/TransparentStyle">
+            <intent-filter>
+                <action android:name="ClientTransferActivity.FROM_SELF" />
+                <action android:name="ClientTransferActivity.FROM_OTHER" />
+            </intent-filter>
+        </activity>
+        <service
+            android:name=".aidl.keeplive.RemoteService"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="RemoteService"/>
+            </intent-filter>
+        </service>
+        <activity
+            android:name=".aidl.keeplive.RemoteTransferActivity"
+            android:theme="@style/TransparentStyle">
+            <intent-filter>
+                <action android:name="RemoteTransferActivity.FROM_SELF" />
+                <action android:name="RemoteTransferActivity.FROM_OTHER" />
+            </intent-filter>
         </activity>
     </application>
 

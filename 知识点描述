@@ -1,0 +1,16 @@
+1.自定义双缓冲
+   在初始化的时候添加 Paint bitmapPaint = new Paint();
+                    Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(),//就是将要展示的图片缓存起来
+                            R.mipmap.ic_badge_team);
+                    Bitmap mLineBitmap = Bitmap.createBitmap(200, 200, Bitmap.Config.ARGB_8888);
+                    Canvas canvas1 = new Canvas();
+                    canvas1.setBitmap(mLineBitmap);//这是缓冲区
+                    canvas1.drawBitmap(bitmap, 0, 0, bitmapPaint);
+
+
+   在onDraw()方法里面把缓存的图片绘制出来
+                    canvas.drawBitmap(mLineBitmap, initX, scanY, bitmapPaint);
+
+
+
+

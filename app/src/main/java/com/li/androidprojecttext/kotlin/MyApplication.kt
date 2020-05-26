@@ -4,6 +4,8 @@ import android.app.Activity
 import android.app.Application
 import android.content.Context
 import android.os.Bundle
+import androidx.multidex.MultiDex
+import com.facerecognition.dualdemoVL.ModelInit
 import com.li.androidprojecttext.BuildConfig
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
@@ -32,9 +34,13 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         context = applicationContext
+        ModelInit.initFras() //初始化授权库
+        ModelInit.initModelDirMap(context as Application?)
         initConfig()
         com.li.androidprojecttext.kotlin.utils.DisplayManager.init(this)
         registerActivityLifecycleCallbacks(mActivityLifecycleCallbacks)
+
+        MultiDex.install(this);
     }
 
     private val mActivityLifecycleCallbacks = object : Application.ActivityLifecycleCallbacks {

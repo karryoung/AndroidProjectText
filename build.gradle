@@ -71,4 +71,7 @@ ext {
     otherGlideLibs = [glide]
     // glide注解处理器
     annotationProcessorLibs =[glideCompiler]
+
+    //Navigation
+    navigation = '2.3.0-alpha01'
 }

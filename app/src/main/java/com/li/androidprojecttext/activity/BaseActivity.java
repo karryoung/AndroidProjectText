@@ -12,13 +12,14 @@ import android.view.View;
 import androidx.fragment.app.FragmentActivity;
 
 import com.li.androidprojecttext.view.GrayFrameLayout;
+import com.trello.rxlifecycle2.components.support.RxFragmentActivity;
 
 /**
  * 所有Activity公共类
  * Created by okkuaixiu on 2017/3/15.
  */
 
-public class BaseActivity extends FragmentActivity {
+public class BaseActivity extends RxFragmentActivity {
 
     @Override
     public View onCreateView(String name, Context context, AttributeSet attrs) {

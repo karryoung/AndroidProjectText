@@ -1,4 +1,4 @@
-include ':app', ':aspectjlibrary'
+include ':app', ':aspectjlibrary', ':face_yanshen_doublecomp_module'
 //flutter 的添加
 setBinding(new Binding([gradle: this]))
 evaluate(new File(

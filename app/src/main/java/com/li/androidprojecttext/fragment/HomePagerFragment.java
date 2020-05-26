@@ -1,6 +1,8 @@
 package com.li.androidprojecttext.fragment;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
@@ -8,10 +10,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 
 import com.li.androidprojecttext.R;
+import com.li.androidprojecttext.activity.DoubleCameraActivity;
+import com.li.androidprojecttext.activity.FaceRecognitionDemoActivity;
+import com.li.androidprojecttext.activity.Viewpager2TestActivity;
+import com.li.androidprojecttext.aidl.keeplive.ClientLocalService;
+import com.li.androidprojecttext.aidl.keeplive.RemoteService;
 import com.li.androidprojecttext.databinding.HomePagerFragmentBinding;
 import com.li.androidprojecttext.databing.DatabingTestActivity;
 import com.li.androidprojecttext.mvvm.view.DemoActivity;
@@ -85,6 +95,54 @@ public class HomePagerFragment extends ViewPagerBaseFragment {
                 startActivity(new Intent(getActivity(), DemoActivity.class));
             }
         });
+        binding.viewpager2Test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), Viewpager2TestActivity.class));
+            }
+        });
+        binding.faceTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //第二个参数是需要申请的权限
+                if (ContextCompat.checkSelfPermission(getContext(),
+                        Manifest.permission.CAMERA)
+                        != PackageManager.PERMISSION_GRANTED) {
+                    //权限还没有授予，需要在这里写申请权限的代码
+                    ActivityCompat.requestPermissions(getActivity(),
+                            new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA},
+                            2);
+                } else {
+                    //权限已经被授予，在这里直接写要执行的相应方法即可
+                    startActivity(new Intent(getActivity(), FaceRecognitionDemoActivity.class));
+                }
+            }
+        });
+
+        binding.doubleCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), DoubleCameraActivity.class));
+            }
+        });
+        binding.doubleService.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //两个服务都要启动
+                Intent intent1 = new Intent(getActivity(), RemoteService.class);
+                getActivity().startService(intent1);
+                Intent intent = new Intent(getActivity(), ClientLocalService.class);
+                getActivity().startService(intent);
+            }
+        });
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 2 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            startActivity(new Intent(getActivity(), FaceRecognitionDemoActivity.class));
+        }
     }
 
     /**

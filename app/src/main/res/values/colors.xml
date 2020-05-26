@@ -54,4 +54,7 @@
     <color name="color_aquamarine">#7FFFD4</color>
 
     <color name="color_light_black">#5000</color>
+    <color name="sunflower_gray_50_a600">#99fafafa</color>
+    <color name="sunflower_green_300">#6dc790</color>
+    <color name="sunflower_green_700">#005d2b</color>
 </resources>
