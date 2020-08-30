@@ -7,7 +7,12 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
+
+import com.li.androidprojecttext.R;
+import com.li.androidprojecttext.databinding.FragmentNavigation1Binding;
 
 
 /**
@@ -17,9 +22,21 @@ import androidx.fragment.app.Fragment;
  */
 public class NavigationFragment1 extends Fragment {
 
+    FragmentNavigation1Binding binding;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
+
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_navigation1, container, false);
+        binding.fragment1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("et", binding.et.getText().toString());
+                Navigation.findNavController(binding.getRoot()).navigate(R.id.actionfragment1, bundle);
+            }
+        });
+        return binding.getRoot();
     }
 }

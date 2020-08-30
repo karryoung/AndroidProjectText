@@ -1,6 +1,7 @@
 package com.li.androidprojecttext.fragment;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.ColorMatrix;
@@ -9,22 +10,25 @@ import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.Observer;
 
 import com.li.androidprojecttext.R;
 import com.li.androidprojecttext.activity.DoubleCameraActivity;
 import com.li.androidprojecttext.activity.FaceRecognitionDemoActivity;
+import com.li.androidprojecttext.activity.NavigationActivity;
 import com.li.androidprojecttext.activity.Viewpager2TestActivity;
 import com.li.androidprojecttext.aidl.keeplive.ClientLocalService;
 import com.li.androidprojecttext.aidl.keeplive.RemoteService;
 import com.li.androidprojecttext.databinding.HomePagerFragmentBinding;
 import com.li.androidprojecttext.databing.DatabingTestActivity;
 import com.li.androidprojecttext.mvvm.view.DemoActivity;
+import com.li.permission.LivePermissions;
+import com.li.permission.PermissionResult;
 
 /**
  * 首页Fragment
@@ -43,9 +47,9 @@ public class HomePagerFragment extends ViewPagerBaseFragment {
      * 获取HomePagerFragment对象
      * 使用双重锁定机制
      */
-    public static HomePagerFragment newInstance(){
+    public static HomePagerFragment newInstance() {
         if (homePagerFragment == null) {
-            synchronized (HomePagerFragment.class){
+            synchronized (HomePagerFragment.class) {
                 if (homePagerFragment == null) {
                     homePagerFragment = new HomePagerFragment();
                 }
@@ -55,6 +59,7 @@ public class HomePagerFragment extends ViewPagerBaseFragment {
     }
 
     HomePagerFragmentBinding binding;
+
     @Override
     protected int getLayoutResource() {
         return R.layout.home_pager_fragment;
@@ -102,20 +107,51 @@ public class HomePagerFragment extends ViewPagerBaseFragment {
             }
         });
         binding.faceTest.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("FragmentLiveDataObserve")
             @Override
             public void onClick(View v) {
-                //第二个参数是需要申请的权限
-                if (ContextCompat.checkSelfPermission(getContext(),
-                        Manifest.permission.CAMERA)
-                        != PackageManager.PERMISSION_GRANTED) {
-                    //权限还没有授予，需要在这里写申请权限的代码
-                    ActivityCompat.requestPermissions(getActivity(),
-                            new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA},
-                            2);
-                } else {
-                    //权限已经被授予，在这里直接写要执行的相应方法即可
-                    startActivity(new Intent(getActivity(), FaceRecognitionDemoActivity.class));
-                }
+
+
+                new LivePermissions(HomePagerFragment.this).request(
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.CAMERA
+                ).observe(HomePagerFragment.this, new Observer<PermissionResult>() {
+                    @Override
+                    public void onChanged(PermissionResult permissionResult) {
+
+                        if (permissionResult.equals(PermissionResult.Grant.INSTANCE)) {
+                            Toast.makeText(getContext(), "权限允许", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getActivity(), FaceRecognitionDemoActivity.class));
+                        } else {
+                            if (permissionResult instanceof PermissionResult.Deny) {
+                                for (String result :
+                                        ((PermissionResult.Deny) permissionResult).getPermission()) {
+                                    Toast.makeText(getContext(), "拒绝且勾选不再询问" + result, Toast.LENGTH_SHORT).show();
+                                }
+                            }
+
+                            if (permissionResult instanceof PermissionResult.Rationale) {
+                                for (String result :
+                                        ((PermissionResult.Rationale) permissionResult).getPermission()) {
+                                    Toast.makeText(getContext(), "权限拒绝" + result, Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        }
+                    }
+                });
+//                //第二个参数是需要申请的权限
+//                if (ContextCompat.checkSelfPermission(getContext(),
+//                        Manifest.permission.CAMERA)
+//                        != PackageManager.PERMISSION_GRANTED) {
+//                    //权限还没有授予，需要在这里写申请权限的代码
+//                    ActivityCompat.requestPermissions(getActivity(),
+//                            new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA},
+//                            2);
+//                } else {
+//                    //权限已经被授予，在这里直接写要执行的相应方法即可
+//                    startActivity(new Intent(getActivity(), FaceRecognitionDemoActivity.class));
+//                }
             }
         });
 
@@ -133,6 +169,12 @@ public class HomePagerFragment extends ViewPagerBaseFragment {
                 getActivity().startService(intent1);
                 Intent intent = new Intent(getActivity(), ClientLocalService.class);
                 getActivity().startService(intent);
+            }
+        });
+        binding.navigationTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), NavigationActivity.class));
             }
         });
     }

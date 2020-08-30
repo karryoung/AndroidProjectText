@@ -2,16 +2,28 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/test">
+    app:startDestination="@+id/navigationFragment1">
 
-    <navigation
-        android:id="@+id/navigation1" >
-        <fragment
-            android:id="@+id/navigationFragment1"
-            android:name="com.li.androidprojecttext.fragment.navigation.NavigationFragment1"
-            android:label="fragment_blank"
-            tools:layout="@layout/fragment_blank" />
-    </navigation>
-    <activity android:id="@+id/navigation_test"
-        android:name="com.li.androidprojecttext.activity.NavigationTestActivity"/>
+    <fragment
+        android:id="@+id/navigationFragment1"
+        android:name="com.li.androidprojecttext.fragment.navigation.NavigationFragment1"
+        android:label="fragment_navigation1"
+        tools:layout="@layout/fragment_navigation1">
+        <action
+            android:id="@+id/actionfragment1"
+            app:destination="@id/navigationFragment2"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/navigationFragment2"
+        android:name="com.li.androidprojecttext.fragment.navigation.NavigationFragment2"
+        android:label="fragment_navigation2"
+        tools:layout="@layout/fragment_navigation2" >
+        <argument android:name="et"
+            android:defaultValue="啊啊啊啊"
+            app:argType="string"/>
+    </fragment>
 </navigation>

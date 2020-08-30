@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/face_yanshen_doublecomp_module" />
             <option value="$PROJECT_DIR$/flutter_module" />
             <option value="$PROJECT_DIR$/flutter_module/.android/Flutter" />
+            <option value="$PROJECT_DIR$/livedatapermission" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

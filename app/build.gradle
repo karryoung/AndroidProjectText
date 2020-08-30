@@ -137,6 +137,12 @@ dependencies {
     implementation 'com.google.zxing:core:3.0.1'
     // 引入multidex库
     implementation 'com.android.support:multidex:1.0.3'
+
+    //MotionLayout
+    implementation 'com.android.support.constraint:constraint-layout:2.0.0-beta2'
+
+    //LiveDataPermission
+    implementation project(':livedatapermission')
 }
 
 import org.aspectj.bridge.IMessage

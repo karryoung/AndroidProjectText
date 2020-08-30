@@ -68,6 +68,10 @@
             android:screenOrientation="portrait">
 
         </activity>
+        <activity android:name=".activity.NavigationTestActivity">
+            <nav-graph android:value="@navigation/test" />
+        </activity>
+        <activity android:name=".activity.NavigationActivity"/>
 
         <service
             android:name=".aidl.keeplive.ClientLocalService"

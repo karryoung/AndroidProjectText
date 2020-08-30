@@ -1,0 +1,27 @@
+R_DEF: Internal format may change without notice
+local
+color colorAccent
+color colorPrimary
+color colorPrimaryDark
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+id cancel_btn
+id commit_btn
+id face_view
+id input_passwd_et
+id input_username_et
+id sv_nir
+id sv_top
+id tv_result
+layout activity_main
+layout activity_yanshentwo_rec
+layout dialog_license_login
+mipmap ic_launcher
+mipmap ic_launcher_round
+raw anti
+raw detect
+raw extract
+raw lm
+raw prop
+string app_name
+style AppTheme
