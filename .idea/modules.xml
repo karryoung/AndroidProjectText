@@ -2,15 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AndroidProjectText.iml" filepath="$PROJECT_DIR$/AndroidProjectText.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/AndroidProjectText-app.iml" filepath="$PROJECT_DIR$/app/AndroidProjectText-app.iml" group="AndroidProjectText/app" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/aspectjlibrary/aspectjlibrary.iml" filepath="$PROJECT_DIR$/aspectjlibrary/aspectjlibrary.iml" group="AndroidProjectText/aspectjlibrary" />
-      <module fileurl="file://$PROJECT_DIR$/face_yanshen_doublecomp_module/face_yanshen_doublecomp_module.iml" filepath="$PROJECT_DIR$/face_yanshen_doublecomp_module/face_yanshen_doublecomp_module.iml" group="AndroidProjectText/face_yanshen_doublecomp_module" />
-      <module fileurl="file://$PROJECT_DIR$/flutter_module/.android/Flutter/flutter.iml" filepath="$PROJECT_DIR$/flutter_module/.android/Flutter/flutter.iml" group="AndroidProjectText/flutter" />
-      <module fileurl="file://$PROJECT_DIR$/flutter_module/flutter_module.iml" filepath="$PROJECT_DIR$/flutter_module/flutter_module.iml" group="AndroidProjectText/flutter_module" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/livedatapermission/livedatapermission.iml" filepath="$PROJECT_DIR$/.idea/modules/livedatapermission/livedatapermission.iml" group="AndroidProjectText/livedatapermission" />
-      <module fileurl="file://$PROJECT_DIR$/yiqian-AndroidProjectText.iml" filepath="$PROJECT_DIR$/yiqian-AndroidProjectText.iml" group="AndroidProjectText" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/AndroidProjectText.iml" filepath="$PROJECT_DIR$/.idea/modules/AndroidProjectText.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AndroidProjectText.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AndroidProjectText.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/aspectjlibrary/AndroidProjectText.aspectjlibrary.iml" filepath="$PROJECT_DIR$/.idea/modules/aspectjlibrary/AndroidProjectText.aspectjlibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/face_yanshen_doublecomp_module/AndroidProjectText.face_yanshen_doublecomp_module.iml" filepath="$PROJECT_DIR$/.idea/modules/face_yanshen_doublecomp_module/AndroidProjectText.face_yanshen_doublecomp_module.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/flutter_module/.android/Flutter/AndroidProjectText.flutter.iml" filepath="$PROJECT_DIR$/.idea/modules/flutter_module/.android/Flutter/AndroidProjectText.flutter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/flutter_module/AndroidProjectText.flutter_module.iml" filepath="$PROJECT_DIR$/.idea/modules/flutter_module/AndroidProjectText.flutter_module.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/livedatapermission/AndroidProjectText.livedatapermission.iml" filepath="$PROJECT_DIR$/.idea/modules/livedatapermission/AndroidProjectText.livedatapermission.iml" />
     </modules>
   </component>
 </project>
